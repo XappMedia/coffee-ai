@@ -1,0 +1,25 @@
+{
+  "extends": ["config:base", "schedule:daily"],
+  "packageRules": [
+    {
+      "depTypeList": ["devDependencies"],
+      "updateTypes": ["minor"],
+      "automerge": true
+    },
+    {
+      "depTypeList": ["dependencies"],
+      "updateTypes": ["minor"],
+      "automerge": true
+    },
+    {
+      "packagePatterns": ["stentor", "@xapp"],
+      "groupName": "@xapp/stentor",
+      "schedule": null,
+      "automerge": true
+    },
+    {
+      "packageNames": ["aws-sdk"],
+      "schedule": ["after 9pm on sunday"]
+    }
+  ]
+}
