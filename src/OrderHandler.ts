@@ -8,7 +8,7 @@ export class OrderHandler extends AbstractHandler {
     // in the handleRequest method below
     public async start(request: Request, context: Context): Promise<void> {
         // Implement the start method.
-        context.response.say('Hello world!');
+        context.response.say('Thanks, say another.').reprompt('Please say another order.');
     }
     // The handleRequest is called 
     public async handleRequest(request: Request, context: Context): Promise<void> {
@@ -26,9 +26,11 @@ export class OrderHandler extends AbstractHandler {
             // Let it fall through to the super
         }
 
+        context.response.say('Thanks, say another.').reprompt('Please say another order.');
+
         // 3. Let remaining requests fall through to the super
         //    It is not recommended to remove this
-        return super.handleRequest(request, context);
+        // return super.handleRequest(request, context);
     }
 
     public canHandleRequest(request: Request, context: Context): boolean {
