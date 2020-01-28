@@ -9,7 +9,7 @@ import { Dialogflow } from "@xapp/stentor-dialogflow";
 // Services
 import { DynamoUserStorageService } from "@xapp/stentor-service-user-storage";
 // Custom Handlers
-import { CustomHandler } from "./CustomHandler";
+import { OrderHandler } from "./OrderHandler";
 
 // Return the handler for running in an AWS Lambda function.
 export const handler = new Assistant()
@@ -20,7 +20,7 @@ export const handler = new Assistant()
         })
     )
     .withHandlers({
-        CustomHandler
+        OrderHandler
     })
     .withChannels([Alexa(), Dialogflow()])
     .lambda();
